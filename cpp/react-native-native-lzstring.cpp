@@ -1,6 +1,6 @@
 #include "react-native-native-lzstring.h"
 
-namespace example {
+namespace SKRNNativeLZString {
 	int multiply(float a, float b) {
 		return a * b;
 	}
