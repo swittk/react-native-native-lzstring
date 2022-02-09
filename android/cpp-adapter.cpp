@@ -16,9 +16,7 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeCompress(JNIEnv *e
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::compress(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
 extern "C"
@@ -29,9 +27,7 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeDecompress(JNIEnv 
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::decompress(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
 extern "C"
@@ -43,9 +39,7 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeCompressToBase64(J
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::compressToBase64(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
 extern "C"
@@ -57,9 +51,7 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeDecompressFromBase
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::decompressFromBase64(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
 extern "C"
@@ -72,9 +64,7 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeCompressToUTF16(JN
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::compressToUTF16(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
 extern "C"
@@ -86,8 +76,6 @@ Java_com_reactnativenativelzstring_NativeLzstringModule_nativeDecompressFromUTF1
     const jchar *chars = env->GetStringChars(input, &isCopy);
     jlong len = env->GetStringLength(input);
     std::u16string res = lzstring::decompressFromUTF16(std::u16string ((char16_t *)chars, len));
-    if(isCopy) {
-        env->ReleaseStringChars(input, chars);
-    }
+    env->ReleaseStringChars(input, chars);
     return env->NewString((jchar *)res.data(), res.length());
 }
