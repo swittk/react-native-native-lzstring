@@ -1,6 +1,6 @@
 {
   "name": "react-native-native-lzstring",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Native LZString for react native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

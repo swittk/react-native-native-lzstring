@@ -22,7 +22,8 @@ RCT_EXPORT_METHOD(compress:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::compress((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::compress(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 RCT_EXPORT_METHOD(decompress:(NSString *)input
@@ -30,7 +31,8 @@ RCT_EXPORT_METHOD(decompress:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::decompress((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::decompress(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 
@@ -39,7 +41,8 @@ RCT_EXPORT_METHOD(compressToUTF16:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::compressToUTF16((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::compressToUTF16(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 RCT_EXPORT_METHOD(decompressFromUTF16:(NSString *)input
@@ -47,7 +50,8 @@ RCT_EXPORT_METHOD(decompressFromUTF16:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::decompressFromUTF16((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::decompressFromUTF16(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 
@@ -56,7 +60,8 @@ RCT_EXPORT_METHOD(compressToBase64:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::compressToBase64((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::compressToBase64(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 RCT_EXPORT_METHOD(decompressFromBase64:(NSString *)input
@@ -64,7 +69,8 @@ RCT_EXPORT_METHOD(decompressFromBase64:(NSString *)input
                   withReject:(RCTPromiseRejectBlock)reject
                   )
 {
-    std::u16string res = lzstring::decompressFromBase64((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding]);
+    std::u16string str((const char16_t*)[input cStringUsingEncoding:NSUTF16StringEncoding], input.length);
+    std::u16string res = lzstring::decompressFromBase64(str);
     resolve([[NSString alloc] initWithCharacters:(const unichar *)res.data() length:res.length()]);
 }
 
